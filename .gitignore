@@ -2,3 +2,4 @@ elm-stuff/
 *.swp
 my-app.js
 venv/
+__pycache__
