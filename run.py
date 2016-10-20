@@ -18,7 +18,7 @@ def homepage():
 def get_list_of_strings():
     lst = [
         'from',
-        'the'
+        'the',
         'server'
     ]
     return jsonify(
