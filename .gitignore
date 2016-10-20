@@ -1,3 +1,4 @@
 elm-stuff/
 *.swp
 my-app.js
+venv/
