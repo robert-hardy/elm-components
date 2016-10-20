@@ -31,7 +31,9 @@ type Msg
 update msg model =
   case msg of
     GetListOfStrings ->
-      (model, Cmd.none)
+      (model, getListOfStrings)
+    NewString l ->
+      (Model l, Cmd.none)
     otherwise ->
       (model, Cmd.none)
 
