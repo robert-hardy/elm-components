@@ -21,9 +21,13 @@ listToShow : List String
 listToShow = [ "hello", "world" ]
 
 
+type Msg
+  = GetListOfStrings
+
+
 update msg model =
   case msg of
-    otherwise ->
+    GetListOfStrings ->
       (model, Cmd.none)
 
 
