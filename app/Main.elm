@@ -23,11 +23,14 @@ listToShow = [ "hello", "world" ]
 
 type Msg
   = GetListOfStrings
+  | NewString (List String)
 
 
 update msg model =
   case msg of
     GetListOfStrings ->
+      (model, Cmd.none)
+    otherwise ->
       (model, Cmd.none)
 
 
