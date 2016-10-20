@@ -39,7 +39,7 @@ update msg model =
 
 
 getListOfStrings =
-  Task.perform (\x -> Failed) NewList (Task.succeed ["goodbye"])
+  Task.perform (\x -> Failed) NewList (Task.succeed ["goodbye", "earth"])
 
 
 view model =
