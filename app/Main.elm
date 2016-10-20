@@ -24,7 +24,7 @@ listToShow = [ "hello", "world" ]
 
 type Msg
   = GetListOfStrings
-  | NewString (List String)
+  | NewList (List String)
   | Failed
 
 
@@ -32,14 +32,14 @@ update msg model =
   case msg of
     GetListOfStrings ->
       (model, getListOfStrings)
-    NewString l ->
+    NewList l ->
       (Model l, Cmd.none)
     otherwise ->
       (model, Cmd.none)
 
 
 getListOfStrings =
-  Task.perform (\x -> Failed) NewString (Task.succeed ["goodbye"])
+  Task.perform (\x -> Failed) NewList (Task.succeed ["goodbye"])
 
 
 view model =
