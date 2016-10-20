@@ -9,10 +9,7 @@ listToShow = [ "hello", "world" ]
 main =
   let
     inner =
-      ul []
-        [ li [] [ text "foo" ]
-        , li [] [ text "bar" ]
-        ]
+      ul [] (List.map (\s -> li [] [ text s ]) listToShow)
   in
     div [class "container"]
       [
