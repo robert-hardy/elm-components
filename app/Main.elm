@@ -8,7 +8,7 @@ import Task
 
 main =
   App.program
-    { init = (Model listToShow, getListOfStrings)
+    { init = (Model [], getListOfStrings)
     , view = view
     , update = update
     , subscriptions = (\m -> Sub.none)
@@ -18,10 +18,6 @@ main =
 type alias Model =
   { list: List String
   }
-
-
-listToShow : List String
-listToShow = [ "hello", "world" ]
 
 
 type Msg
