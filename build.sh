@@ -1,1 +1,1 @@
-elm-make app/Main.elm --output app/my-app.js
+elm-make app/Main.elm --output app/static/my-app.js
