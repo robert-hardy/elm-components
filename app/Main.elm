@@ -15,19 +15,20 @@ main =
       [ panel "A list" theList
       ]
 
-panelHeading title =
-  div
-    [class "panel-heading"]
-    [
-      div
-        [class "panel-title"]
-        [ h1 [] [ text title ] ]
-    ]
-
 
 panel title content =
-  div
-    [class "panel panel-default"]
-    [ panelHeading title
-    , content
-    ]
+  let
+    panelHeading title =
+      div
+        [class "panel-heading"]
+        [
+          div
+            [class "panel-title"]
+            [ h1 [] [ text title ] ]
+        ]
+  in
+    div
+      [class "panel panel-default"]
+      [ panelHeading title
+      , content
+      ]
