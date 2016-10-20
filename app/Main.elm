@@ -4,10 +4,11 @@ import Html.App as App
 
 
 main =
-  App.beginnerProgram
-    { model = {}
+  App.program
+    { init = ({}, Cmd.none)
     , view = view
-    , update = (\m -> m)
+    , update = (\msg -> (\m -> (m, Cmd.none)))
+    , subscriptions = (\m -> Sub.none)
     }
 
 
