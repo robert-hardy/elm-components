@@ -7,7 +7,7 @@ main =
   App.program
     { init = (Model listToShow, Cmd.none)
     , view = view
-    , update = (\msg -> (\m -> (m, Cmd.none)))
+    , update = update
     , subscriptions = (\m -> Sub.none)
     }
 
@@ -19,6 +19,12 @@ type alias Model =
 
 listToShow : List String
 listToShow = [ "hello", "world" ]
+
+
+update msg model =
+  case msg of
+    otherwise ->
+      (model, Cmd.none)
 
 
 view model =
