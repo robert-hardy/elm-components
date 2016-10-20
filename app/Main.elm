@@ -1,6 +1,7 @@
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.App as App
+import Task
 
 
 main =
@@ -24,6 +25,7 @@ listToShow = [ "hello", "world" ]
 type Msg
   = GetListOfStrings
   | NewString (List String)
+  | Failed
 
 
 update msg model =
@@ -32,6 +34,10 @@ update msg model =
       (model, Cmd.none)
     otherwise ->
       (model, Cmd.none)
+
+
+getListOfStrings =
+  Task.perform (\x -> Failed) NewString (Task.succeed ["goodbye"])
 
 
 view model =
