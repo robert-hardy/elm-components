@@ -6,7 +6,7 @@ import Task
 
 main =
   App.program
-    { init = (Model listToShow, Cmd.none)
+    { init = (Model listToShow, getListOfStrings)
     , view = view
     , update = update
     , subscriptions = (\m -> Sub.none)
