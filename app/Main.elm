@@ -2,10 +2,19 @@ import Html exposing (..)
 import Html.Attributes exposing (..)
 
 
-main =
-    let
-        inner = div [id "inner"] [h1 [class "text-center"] [text "hello flash of unstyled content"]]
-        hero  = div [id "hero", class "jumbotron"] [inner]
+listToShow : List String
+listToShow = [ "hello", "world" ]
 
-    in
-        div [id "outer", class "container"] [inner]
+
+main =
+  let
+    inner =
+      ul []
+        [ li [] [ text "foo" ]
+        , li [] [ text "bar" ]
+        ]
+  in
+    div [class "container"]
+      [
+        div [class "row"] [ inner ]
+      ]
