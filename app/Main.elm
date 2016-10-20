@@ -9,9 +9,22 @@ listToShow = [ "hello", "world" ]
 main =
   let
     inner =
-      ul [] (List.map (\s -> li [] [ text s ]) listToShow)
+      ul [class "list-group"] (List.map (\s -> li [] [ text s ]) listToShow)
   in
     div [class "container"]
-      [
-        div [class "row"] [ inner ]
+      [ panelHeading "A list"
+      , div [] [ inner ]
       ]
+
+panelHeading title =
+  div
+    [class "panel panel-default"]
+    [
+      div
+        [class "panel-heading"]
+        [
+          div
+            [class "panel-title"]
+            [ h1 [] [ text title ] ]
+        ]
+    ]
