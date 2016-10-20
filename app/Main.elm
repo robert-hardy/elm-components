@@ -1,6 +1,7 @@
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.App as App
+import Http
 import Json.Decode as Json
 import Task
 
@@ -40,7 +41,11 @@ update msg model =
 
 
 getListOfStrings =
-  Task.perform (\x -> Failed) NewList (Task.succeed ["goodbye", "earth"])
+  let
+    url =
+      "http://localhost:8080/list-of-strings"
+  in
+    Task.perform (\x -> Failed) NewList (Http.get decodeJSON url)
 
 
 decodeJSON =
