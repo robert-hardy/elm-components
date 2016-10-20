@@ -1,6 +1,7 @@
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.App as App
+import Json.Decode as Json
 import Task
 
 
@@ -40,6 +41,10 @@ update msg model =
 
 getListOfStrings =
   Task.perform (\x -> Failed) NewList (Task.succeed ["goodbye", "earth"])
+
+
+decodeJSON =
+  Json.at ["result"] (Json.list Json.string)
 
 
 view model =

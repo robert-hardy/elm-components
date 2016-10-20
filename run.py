@@ -1,4 +1,7 @@
-from flask import render_template
+from flask import (
+    jsonify,
+    render_template
+)
 
 
 from app.flasky import app
@@ -8,6 +11,20 @@ from app.flasky import app
 def homepage():
     return render_template(
         'index.html'
+    )
+
+
+@app.route('/list-of-strings')
+def get_list_of_strings():
+    lst = [
+        'from',
+        'the'
+        'server'
+    ]
+    return jsonify(
+        {
+            'result': lst
+        }
     )
 
 
