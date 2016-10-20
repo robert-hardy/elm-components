@@ -1,12 +1,21 @@
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.App as App
+
+
+main =
+  App.beginnerProgram
+    { model = {}
+    , view = view
+    , update = (\m -> m)
+    }
 
 
 listToShow : List String
 listToShow = [ "hello", "world" ]
 
 
-main =
+view model =
   let
     theList =
       ul [class "list-group"] (List.map (\s -> li [class "list-group-item"] [ text s ]) listToShow)
