@@ -1,5 +1,5 @@
 elm-stuff/
 *.swp
-my-app.js
+app.js
 venv/
 __pycache__
