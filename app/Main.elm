@@ -1,9 +1,13 @@
+module ToDoList.App exposing (..)
+
+
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.App as App
 import Http
 import Json.Decode as Json
 import Task
+import ToDoList.Types exposing (..)
 
 
 main =
@@ -18,12 +22,6 @@ main =
 type alias Model =
   { list: List String
   }
-
-
-type Msg
-  = GetListOfStrings
-  | NewList (List String)
-  | Failed
 
 
 update msg model =
