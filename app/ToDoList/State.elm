@@ -1,6 +1,7 @@
 module ToDoList.State exposing (..)
 
 
+import ToDoList.Rest exposing (..)
 import ToDoList.Types exposing (..)
 
 

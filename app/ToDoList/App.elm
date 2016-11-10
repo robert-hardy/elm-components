@@ -1,14 +1,10 @@
 module ToDoList.App exposing (..)
 
 
-import Html exposing (..)
-import Html.Attributes exposing (..)
 import Html.App as App
-import Http
-import Json.Decode as Json
-import Task
-import ToDoList.Types exposing (..)
+import ToDoList.Rest exposing (..)
 import ToDoList.State exposing (..)
+import ToDoList.Types exposing (..)
 import ToDoList.View exposing (..)
 
 
