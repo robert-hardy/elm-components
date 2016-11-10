@@ -14,7 +14,7 @@ appname = sys.argv[1]
 @app.route('/')
 def homepage():
     return render_template(
-        'index.html'
+        'index.html',
         appname=appname
     )
 
