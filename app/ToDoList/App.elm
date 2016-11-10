@@ -1,4 +1,4 @@
-module ToDoList.App exposing (..)
+module ToDoList.App exposing (main)
 
 
 import Html.App as App
@@ -8,6 +8,7 @@ import ToDoList.Types exposing (..)
 import ToDoList.View exposing (..)
 
 
+main : Program Never
 main =
   App.program
     { init = (Model [], getListOfStrings)
