@@ -6,7 +6,7 @@ import Html.Attributes exposing (..)
 import ToDoList.Types exposing (..)
 
 
-view model =
+root model =
   let
     theList =
       ul [class "list-group"] (List.map (\s -> li [class "list-group-item"] [ text s ]) model.list)
