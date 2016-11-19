@@ -19,6 +19,7 @@ The server is written in Python 3.5 using Flask. I _always_ use `virtualenv`,
 so the code to get started is:
 
     virtualenv venv -p /usr/python3.5
+    pip install -r requirements.txt
     source venv/bin/activate
     source build_and_run.sh
 
