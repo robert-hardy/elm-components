@@ -8,14 +8,22 @@ import PanelWordEcho.Types exposing (..)
 root model =
     let
         theList =
-            ul [ class "list-group" ] (List.map (\s -> li [ class "list-group-item" ] [ text s ]) model.list)
+            case model.reply of
+                Nothing ->
+                    ul [ class "list-group" ]
+                        []
+
+                Just reply ->
+                    ul [ class "list-group" ]
+                        [ li [ class "list-group-item" ] [ text reply ]
+                        ]
     in
         div [ class "container" ]
-            [ panel "A list" theList
+            [ panel "Word echo" model.word theList
             ]
 
 
-panel title content =
+panel title word content =
     let
         panelHeading title =
             div
@@ -24,9 +32,16 @@ panel title content =
                     [ class "panel-title" ]
                     [ h1 [] [ text title ] ]
                 ]
+
+        panelBody word =
+            div
+                [ class "panel-body" ]
+                [ code [] [ text word ]
+                ]
     in
         div
             [ class "panel panel-default" ]
             [ panelHeading title
+            , panelBody word
             , content
             ]

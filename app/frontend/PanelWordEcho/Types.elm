@@ -2,8 +2,8 @@ module PanelWordEcho.Types exposing (..)
 
 
 type alias Model =
-    { list : List String
-    , badge : Int
+    { word : String
+    , reply : Maybe String
     }
 
 
