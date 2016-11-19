@@ -6,13 +6,13 @@ import Task
 import PanelWordEcho.Types exposing (..)
 
 
-getListOfStrings =
+getReply =
     let
         url =
-            "http://localhost:8080/list-of-strings"
+            "http://localhost:8080/echo"
     in
-        Task.perform (\x -> Failed) NewList (Http.get decodeJSON url)
+        Task.perform (\x -> Failed) Reply (Http.get decodeJSON url)
 
 
 decodeJSON =
-    Json.at [ "result" ] (Json.list Json.string)
+    Json.at [ "result" ] Json.string

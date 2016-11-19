@@ -8,6 +8,6 @@ type alias Model =
 
 
 type Msg
-    = GetListOfStrings
-    | NewList (List String)
+    = GetReply
+    | Reply String
     | Failed
