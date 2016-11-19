@@ -1,10 +1,10 @@
-module ToDoList.Rest exposing (..)
+module PanelWordList.Rest exposing (..)
 
 
 import Http
 import Json.Decode as Json
 import Task
-import ToDoList.Types exposing (..)
+import PanelWordList.Types exposing (..)
 
 
 getListOfStrings =

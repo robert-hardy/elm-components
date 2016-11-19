@@ -1,9 +1,9 @@
-module ToDoList.View exposing (..)
+module PanelWordList.View exposing (..)
 
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
-import ToDoList.Types exposing (..)
+import PanelWordList.Types exposing (..)
 
 
 root model =

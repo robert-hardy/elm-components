@@ -1,4 +1,4 @@
-module ToDoList.Types exposing (..)
+module PanelWordList.Types exposing (..)
 
 
 type alias Model =

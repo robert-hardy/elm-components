@@ -1,8 +1,8 @@
-module ToDoList.State exposing (..)
+module PanelWordList.State exposing (..)
 
 
-import ToDoList.Rest exposing (..)
-import ToDoList.Types exposing (..)
+import PanelWordList.Rest exposing (..)
+import PanelWordList.Types exposing (..)
 
 
 init : ( Model, Cmd Msg )
