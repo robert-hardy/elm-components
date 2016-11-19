@@ -22,9 +22,9 @@ def homepage():
 @app.route('/list-of-strings')
 def get_list_of_strings():
     lst = [
-        'from',
-        'the',
-        'server'
+        'Hello',
+        'Buongiorno',
+        'Bonjour'
     ]
     return jsonify(
         {
@@ -37,7 +37,8 @@ def get_list_of_strings():
 def reply(word):
     word_pairs = {
         'hello': 'goodbye',
-        'buongiorno': 'arrivederci'
+        'buongiorno': 'arrivederci',
+        'buonjour': 'aurevoir'
     }
     reply = word_pairs.get(word.lower(), None)
     if not reply:

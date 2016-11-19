@@ -6,7 +6,7 @@ import PanelWordEcho.Types exposing (..)
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model (Just "Hello") Nothing, Cmd.none )
+    ( Model (Just "Buongiorno") Nothing, Cmd.none )
 
 
 update msg model =
