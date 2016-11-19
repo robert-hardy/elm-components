@@ -16,30 +16,35 @@ root model =
                 Just w ->
                     w
 
-        server_reply =
-            case model.reply of
+        reply_section =
+            case model.word of
                 Nothing ->
-                    ul [ class "list-group" ]
-                        [ li [ class "list-group-item" ]
-                            [ button
-                                [ class "btn btn-primary"
-                                , onClick GetReply
-                                ]
-                                [ text "Get the reply" ]
-                            ]
-                        ]
+                    text ""
 
-                Just reply ->
-                    ul [ class "list-group" ]
-                        [ li [ class "list-group-item" ] [ text reply ]
-                        ]
+                otherwise ->
+                    case model.reply of
+                        Nothing ->
+                            ul [ class "list-group" ]
+                                [ li [ class "list-group-item" ]
+                                    [ button
+                                        [ class "btn btn-primary"
+                                        , onClick GetReply
+                                        ]
+                                        [ text "Get the reply" ]
+                                    ]
+                                ]
+
+                        Just reply ->
+                            ul [ class "list-group" ]
+                                [ li [ class "list-group-item" ] [ text reply ]
+                                ]
     in
         div [ class "container" ]
-            [ panel "Word echo" the_word server_reply
+            [ panel "Word echo" the_word reply_section
             ]
 
 
-panel title word content =
+panel title word reply_section =
     let
         panelHeading title =
             div
@@ -59,5 +64,5 @@ panel title word content =
             [ class "panel panel-default" ]
             [ panelHeading title
             , panelBody word
-            , content
+            , reply_section
             ]
