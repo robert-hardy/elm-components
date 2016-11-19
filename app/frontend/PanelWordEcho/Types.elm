@@ -2,7 +2,7 @@ module PanelWordEcho.Types exposing (..)
 
 
 type alias Model =
-    { word : String
+    { word : Maybe String
     , reply : Maybe String
     }
 

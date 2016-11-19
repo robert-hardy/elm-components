@@ -6,18 +6,23 @@ import PanelWordEcho.Types exposing (..)
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model "Hello" Nothing, Cmd.none )
+    ( Model (Just "Hello") Nothing, Cmd.none )
 
 
 update msg model =
-    case msg of
-        GetReply ->
-            ( model, getReply model.word )
-
-        Reply reply ->
-            ( { model | reply = Just reply }
-            , Cmd.none
-            )
-
-        otherwise ->
+    case model.word of
+        Nothing ->
             ( model, Cmd.none )
+
+        Just word ->
+            case msg of
+                GetReply ->
+                    ( model, getReply word )
+
+                Reply reply ->
+                    ( { model | reply = Just reply }
+                    , Cmd.none
+                    )
+
+                otherwise ->
+                    ( model, Cmd.none )

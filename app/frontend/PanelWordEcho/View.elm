@@ -8,7 +8,15 @@ import PanelWordEcho.Types exposing (..)
 
 root model =
     let
-        theList =
+        the_word =
+            case model.word of
+                Nothing ->
+                    "No word supplied"
+
+                Just w ->
+                    w
+
+        server_reply =
             case model.reply of
                 Nothing ->
                     ul [ class "list-group" ]
@@ -27,7 +35,7 @@ root model =
                         ]
     in
         div [ class "container" ]
-            [ panel "Word echo" model.word theList
+            [ panel "Word echo" the_word server_reply
             ]
 
 
