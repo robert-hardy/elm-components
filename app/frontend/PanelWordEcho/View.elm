@@ -2,6 +2,7 @@ module PanelWordEcho.View exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (onClick)
 import PanelWordEcho.Types exposing (..)
 
 
@@ -12,7 +13,12 @@ root model =
                 Nothing ->
                     ul [ class "list-group" ]
                         [ li [ class "list-group-item" ]
-                            [ button [ class "btn btn-primary" ] [ text "Get the reply" ] ]
+                            [ button
+                                [ class "btn btn-primary"
+                                , onClick GetReply
+                                ]
+                                [ text "Get the reply" ]
+                            ]
                         ]
 
                 Just reply ->

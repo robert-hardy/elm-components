@@ -11,5 +11,8 @@ init =
 
 update msg model =
     case msg of
+        GetReply ->
+            ( model, getReply )
+
         otherwise ->
             ( model, Cmd.none )
