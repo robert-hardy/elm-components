@@ -17,5 +17,12 @@ update msg model =
         NewList l ->
             ( { model | list = l }, Cmd.none )
 
+        WordSelected word ->
+            let
+                debug =
+                    Debug.log "word selected" word
+            in
+                ( model, Cmd.none )
+
         otherwise ->
             ( model, Cmd.none )

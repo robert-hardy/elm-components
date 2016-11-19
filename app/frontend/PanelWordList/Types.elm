@@ -11,3 +11,4 @@ type Msg
     = GetListOfStrings
     | NewList (List String)
     | Failed
+    | WordSelected String

@@ -2,13 +2,24 @@ module PanelWordList.View exposing (..)
 
 import Html exposing (..)
 import Html.Attributes exposing (..)
+import Html.Events exposing (onClick)
 import PanelWordList.Types exposing (..)
 
 
 root model =
     let
         theList =
-            ul [ class "list-group" ] (List.map (\s -> li [ class "list-group-item" ] [ text s ]) model.list)
+            ul [ class "list-group" ]
+                (List.map
+                    (\s ->
+                        li
+                            [ class "list-group-item" ]
+                            [ span [ onClick (WordSelected s) ]
+                                [ text s ]
+                            ]
+                    )
+                    model.list
+                )
     in
         div [ class "container" ]
             [ panel "A list" theList
