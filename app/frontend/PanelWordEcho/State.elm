@@ -14,5 +14,10 @@ update msg model =
         GetReply ->
             ( model, getReply model.word )
 
+        Reply reply ->
+            ( { model | reply = Just reply }
+            , Cmd.none
+            )
+
         otherwise ->
             ( model, Cmd.none )
