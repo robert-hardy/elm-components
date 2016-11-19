@@ -39,15 +39,20 @@ def reply(word):
         'hello': 'goodbye',
         'buongiorno': 'arrivederci'
     }
-    if word in word_pairs.keys():
-        reply = word_pairs[word]
-        response = "You said '{0}', the server says '{1}'.".format(word, reply)
+    reply = word_pairs.get(word.lower(), None)
+    if not reply:
         return jsonify ({
-            'result': response
+            'result': 'The server does not know how to reply to this word.'
         })
+
+    response = "You said '{0}', the server says '{1}'.".format(
+            word,
+            reply.title()
+    )
     return jsonify ({
-        'result': 'The server does not know how to reply to this word.'
+        'result': response
     })
+
 
 
 if __name__ == '__main__':
