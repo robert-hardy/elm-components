@@ -33,4 +33,22 @@ def get_list_of_strings():
     )
 
 
-app.run(host='0.0.0.0', port=8080)
+@app.route('/echo/<word>')
+def reply(word):
+    word_pairs = {
+        'hello': 'goodbye',
+        'buongiorno': 'arrivederci'
+    }
+    if word in word_pairs.keys():
+        reply = word_pairs[word]
+        response = "You said '{0}', the server says '{1}'.".format(word, reply)
+        return jsonify ({
+            'result': response
+        })
+    return jsonify ({
+        'result': 'The server does not know how to reply to this word.'
+    })
+
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080)
