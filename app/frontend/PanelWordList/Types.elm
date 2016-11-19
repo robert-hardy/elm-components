@@ -2,12 +2,12 @@ module PanelWordList.Types exposing (..)
 
 
 type alias Model =
-  { list: List String
-  , badge : Int
-  }
+    { list : List String
+    , badge : Int
+    }
 
 
 type Msg
-  = GetListOfStrings
-  | NewList (List String)
-  | Failed
+    = GetListOfStrings
+    | NewList (List String)
+    | Failed
