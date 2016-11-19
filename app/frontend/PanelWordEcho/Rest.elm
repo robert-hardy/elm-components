@@ -6,10 +6,11 @@ import Task
 import PanelWordEcho.Types exposing (..)
 
 
-getReply =
+getReply : String -> Cmd Msg
+getReply word =
     let
         url =
-            "http://localhost:8080/echo"
+            "http://localhost:8080/echo/" ++ word
     in
         Task.perform (\x -> Failed) Reply (Http.get decodeJSON url)
 

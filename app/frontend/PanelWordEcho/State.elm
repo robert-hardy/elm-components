@@ -12,7 +12,7 @@ init =
 update msg model =
     case msg of
         GetReply ->
-            ( model, getReply )
+            ( model, getReply model.word )
 
         otherwise ->
             ( model, Cmd.none )
