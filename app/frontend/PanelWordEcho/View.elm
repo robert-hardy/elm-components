@@ -11,7 +11,9 @@ root model =
             case model.reply of
                 Nothing ->
                     ul [ class "list-group" ]
-                        []
+                        [ li [ class "list-group-item" ]
+                            [ button [ class "btn btn-primary" ] [ text "Get the reply" ] ]
+                        ]
 
                 Just reply ->
                     ul [ class "list-group" ]
