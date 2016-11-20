@@ -8,36 +8,38 @@ import PanelWordList.Types exposing (..)
 
 root model =
     let
-        theList =
+        panelHeader =
+            div
+                [ class "panel-heading" ]
+                [ div
+                    [ class "panel-title" ]
+                    [ h1 [] [ text "A list of words" ] ]
+                ]
+
+        panelBody =
+            div
+                [ class "panel-body" ]
+                [ text "Each word is clickable" ]
+
+        panelList =
             ul [ class "list-group" ]
                 (List.map
                     (\s ->
                         li
-                            [ class "list-group-item" ]
+                            [ class "list-group-item"
+                            , style [ ( "cursor", "pointer" ) ]
+                            ]
                             [ span [ onClick (WordSelected s) ]
-                                [ text s ]
+                                [ code [] [ text s ] ]
                             ]
                     )
                     model.list
                 )
     in
         div [ class "container" ]
-            [ panel "A list" theList
-            ]
-
-
-panel title content =
-    let
-        panelHeading title =
-            div
-                [ class "panel-heading" ]
-                [ div
-                    [ class "panel-title" ]
-                    [ h1 [] [ text title ] ]
+            [ div [ class "panel panel-default" ]
+                [ panelHeader
+                , panelBody
+                , panelList
                 ]
-    in
-        div
-            [ class "panel panel-default" ]
-            [ panelHeading title
-            , content
             ]
