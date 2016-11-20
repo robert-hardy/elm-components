@@ -6,6 +6,8 @@ import PanelWordList.Types
 
 type alias Model =
     { current_word : Maybe String
+    , panel_word_list : PanelWordList.Types.Model
+    , panel_word_echo : PanelWordEcho.Types.Model
     }
 
 

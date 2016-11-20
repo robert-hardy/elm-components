@@ -1,12 +1,20 @@
 module AppMain.State exposing (..)
 
-import AppMain.Rest exposing (..)
 import AppMain.Types exposing (..)
+import PanelWordEcho.Types
+import PanelWordList.Types
 
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model (Just "Buongiorno"), Cmd.none )
+    let
+        word_list_model =
+            PanelWordList.Types.Model []
+
+        word_echo_model =
+            PanelWordEcho.Types.Model Nothing
+    in
+        ( Model Nothing word_list_model word_echo_model, Cmd.none )
 
 
 update msg model =
