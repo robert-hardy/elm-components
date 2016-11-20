@@ -12,7 +12,7 @@ init =
             PanelWordList.Types.Model []
 
         word_echo_model =
-            PanelWordEcho.Types.Model Nothing
+            PanelWordEcho.Types.Model Nothing Nothing
     in
         ( Model Nothing word_list_model word_echo_model, Cmd.none )
 
