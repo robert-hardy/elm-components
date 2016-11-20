@@ -3,7 +3,6 @@ module PanelWordList.Types exposing (..)
 
 type alias Model =
     { list : List String
-    , badge : Int
     }
 
 

@@ -6,7 +6,7 @@ import PanelWordList.Types exposing (..)
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model [] 1, getListOfStrings )
+    ( Model [], getListOfStrings )
 
 
 update msg model =
