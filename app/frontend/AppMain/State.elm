@@ -33,9 +33,20 @@ update msg model =
                 model =
                     { model | panel_word_list = wl_model }
             in
-                ( model
-                , Cmd.map PanelWordList cmds
-                )
+                case msg of
+                    PanelWordList.Types.WordSelected s ->
+                        let
+                            model =
+                                { model | current_word = Just s }
+                        in
+                            ( model
+                            , Cmd.map PanelWordList cmds
+                            )
+
+                    otherwise ->
+                        ( model
+                        , Cmd.map PanelWordList cmds
+                        )
 
         otherwise ->
             ( model, Cmd.none )
