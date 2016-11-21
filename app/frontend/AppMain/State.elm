@@ -2,6 +2,7 @@ module AppMain.State exposing (..)
 
 import AppMain.Types exposing (..)
 import PanelWordEcho.Types
+import PanelWordList.Rest
 import PanelWordList.State
 import PanelWordList.Types
 
@@ -14,8 +15,12 @@ init =
 
         word_echo_model =
             PanelWordEcho.Types.Model Nothing Nothing
+
+        cmd =
+            Cmd.map PanelWordList
+                (PanelWordList.Rest.getListOfStrings)
     in
-        ( Model Nothing word_list_model word_echo_model, Cmd.none )
+        ( Model Nothing word_list_model word_echo_model, cmd )
 
 
 update msg model =
@@ -24,8 +29,11 @@ update msg model =
             let
                 ( wl_model, cmds ) =
                     PanelWordList.State.update msg model.panel_word_list
+
+                model =
+                    { model | panel_word_list = wl_model }
             in
-                ( { model | panel_word_list = wl_model }
+                ( model
                 , Cmd.map PanelWordList cmds
                 )
 
