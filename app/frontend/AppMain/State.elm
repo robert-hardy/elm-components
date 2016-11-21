@@ -2,6 +2,7 @@ module AppMain.State exposing (..)
 
 import AppMain.Types exposing (..)
 import PanelWordEcho.Types
+import PanelWordList.State
 import PanelWordList.Types
 
 
@@ -18,4 +19,15 @@ init =
 
 
 update msg model =
-    ( model, Cmd.none )
+    case msg of
+        PanelWordList msg ->
+            let
+                ( wl_model, cmds ) =
+                    PanelWordList.State.update msg model.panel_word_list
+            in
+                ( { model | panel_word_list = wl_model }
+                , Cmd.map PanelWordList cmds
+                )
+
+        otherwise ->
+            ( model, Cmd.none )
