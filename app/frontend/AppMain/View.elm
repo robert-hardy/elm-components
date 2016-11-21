@@ -10,23 +10,20 @@ import PanelWordList.View
 
 
 root model =
-    case model.word of
-        Nothing ->
-            text ""
+    let
+        panelWordList =
+            Html.App.map PanelWordList
+                (PanelWordList.View.root
+                    model.panel_word_list
+                )
 
-        Just w ->
-            let
-                panelWordList =
-                    Html.App.map PanelWordList
-                        PanelWordList.View.root
-                        model.panel_word_list
-
-                panelWordEcho =
-                    Html.App.map PanelWordEcho
-                        PanelWordEcho.View.root
-                        model.panel_word_echo
-            in
-                div [ class "container" ]
-                    [ panelWordList
-                    , panelWordEcho
-                    ]
+        panelWordEcho =
+            Html.App.map PanelWordEcho
+                (PanelWordEcho.View.root
+                    model.panel_word_echo
+                )
+    in
+        div [ class "container" ]
+            [ panelWordList
+            , panelWordEcho
+            ]
