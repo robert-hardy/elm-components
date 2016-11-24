@@ -2,6 +2,7 @@ module AppMain.State exposing (..)
 
 import AppMain.Types exposing (..)
 import PanelWordEcho.Types
+import PanelWordEcho.State
 import PanelWordList.Rest
 import PanelWordList.State
 import PanelWordList.Types
@@ -48,8 +49,17 @@ update msg model =
                         , Cmd.map PanelWordList cmds
                         )
 
-        otherwise ->
-            ( model, Cmd.none )
+        PanelWordEcho msg ->
+            let
+                ( we_model, cmds ) =
+                    PanelWordEcho.State.update msg model.panel_word_echo
+
+                model =
+                    { model | panel_word_echo = we_model }
+            in
+                ( model
+                , Cmd.map PanelWordEcho cmds
+                )
 
 
 cascade : Model -> Model
