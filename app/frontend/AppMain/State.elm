@@ -37,7 +37,7 @@ update msg model =
                     PanelWordList.Types.WordSelected s ->
                         let
                             model =
-                                { model | current_word = Just s }
+                                cascade { model | current_word = Just s }
                         in
                             ( model
                             , Cmd.map PanelWordList cmds
@@ -50,3 +50,15 @@ update msg model =
 
         otherwise ->
             ( model, Cmd.none )
+
+
+cascade : Model -> Model
+cascade model =
+    let
+        we_model =
+            model.panel_word_echo
+
+        new_we_model =
+            { we_model | word = model.current_word }
+    in
+        { model | panel_word_echo = new_we_model }
