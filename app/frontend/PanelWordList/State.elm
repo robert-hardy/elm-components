@@ -10,7 +10,7 @@ init =
 
 
 update msg model =
-    case msg of
+    case Debug.log "PWL msg" msg of
         GetListOfStrings ->
             ( model, getListOfStrings )
 
