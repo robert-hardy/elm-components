@@ -1,6 +1,8 @@
 Elm components
 ====
 
+(Uses Elm v0.17)
+
 Overview
 ----
 
