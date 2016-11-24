@@ -69,6 +69,12 @@ cascade model =
             model.panel_word_echo
 
         new_we_model =
-            { we_model | word = model.current_word }
+            if we_model.word == model.current_word then
+                we_model
+            else
+                { we_model
+                    | word = model.current_word
+                    , reply = Nothing
+                }
     in
         { model | panel_word_echo = new_we_model }
