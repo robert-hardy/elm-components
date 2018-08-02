@@ -5,7 +5,7 @@ import Json.Decode as Json
 import PanelWordList.Types exposing (..)
 
 
-getListOfStrings : String -> Cmd Msg
+getListOfStrings : Cmd Msg
 getListOfStrings =
     let
         url =
@@ -14,7 +14,7 @@ getListOfStrings =
         request =
             Http.get url decodeJSON
     in
-        Http.send NewList
+        Http.send NewList request
 
 
 decodeJSON =
