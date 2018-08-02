@@ -19,7 +19,7 @@ update msg model =
                 GetReply ->
                     ( model, getReply word )
 
-                Reply reply ->
+                NewWord (Ok reply) ->
                     ( { model | reply = Just reply }
                     , Cmd.none
                     )
