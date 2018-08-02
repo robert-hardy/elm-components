@@ -1,5 +1,6 @@
 module AppMain.View exposing (..)
 
+import Html exposing (..)
 import Html
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
