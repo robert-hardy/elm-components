@@ -45,13 +45,9 @@ update msg model =
                             )
 
                     otherwise ->
-                        let
-                            model2 =
-                                cascade model1
-                        in
-                            ( model2
-                            , Cmd.map PanelWordList cmds
-                            )
+                        ( model1
+                        , Cmd.map PanelWordList cmds
+                        )
 
         PanelWordEcho msg ->
             let
@@ -60,11 +56,8 @@ update msg model =
 
                 model1 =
                     { model | panel_word_echo = we_model }
-
-                model2 =
-                    cascade model1
             in
-                ( model2
+                ( model1
                 , Cmd.map PanelWordEcho cmds
                 )
 
