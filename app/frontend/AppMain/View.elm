@@ -1,9 +1,5 @@
 module AppMain.View exposing (..)
 
-import Html exposing (..)
-import Html.App
-import Html.Attributes exposing (..)
-import Html.Events exposing (onClick)
 import AppMain.Types exposing (..)
 import PanelWordEcho.View
 import PanelWordList.View

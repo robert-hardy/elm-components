@@ -1,6 +1,5 @@
 module PanelWordList.Rest exposing (..)
 
-import Http
 import Json.Decode as Json
 import Task
 import PanelWordList.Types exposing (..)

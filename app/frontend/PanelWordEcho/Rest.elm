@@ -1,6 +1,5 @@
 module PanelWordEcho.Rest exposing (..)
 
-import Http
 import Json.Decode as Json
 import Task
 import PanelWordEcho.Types exposing (..)
