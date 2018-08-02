@@ -1,5 +1,6 @@
 module PanelWordEcho.App exposing (main)
 
+import Html
 import PanelWordEcho.Rest exposing (..)
 import PanelWordEcho.State exposing (init, update)
 import PanelWordEcho.Types exposing (..)
@@ -8,7 +9,7 @@ import PanelWordEcho.View exposing (root)
 
 main : Program Never Model Msg
 main =
-    App.program
+    Html.program
         { init = init
         , view = root
         , update = update

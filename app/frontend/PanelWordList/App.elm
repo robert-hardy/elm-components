@@ -1,5 +1,6 @@
 module PanelWordList.App exposing (main)
 
+import Html
 import PanelWordList.Rest exposing (..)
 import PanelWordList.State exposing (init, update)
 import PanelWordList.Types exposing (..)
@@ -8,7 +9,7 @@ import PanelWordList.View exposing (root)
 
 main : Program Never Model Msg
 main =
-    App.program
+    Html.program
         { init = init
         , view = root
         , update = update

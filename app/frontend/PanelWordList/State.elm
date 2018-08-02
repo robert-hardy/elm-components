@@ -23,6 +23,3 @@ update msg model =
                     Debug.log "word selected" word
             in
                 ( model, Cmd.none )
-
-        otherwise ->
-            ( model, Cmd.none )
