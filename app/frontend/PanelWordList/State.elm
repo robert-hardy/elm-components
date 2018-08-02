@@ -14,8 +14,11 @@ update msg model =
         GetListOfStrings ->
             ( model, getListOfStrings )
 
-        NewList l ->
+        NewList (Ok l) ->
             ( { model | list = l }, Cmd.none )
+
+        NewList (Err _) ->
+            ( model, Cmd.none )
 
         WordSelected word ->
             let
