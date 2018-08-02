@@ -1,5 +1,7 @@
 module PanelWordEcho.Types exposing (..)
 
+import Http
+
 
 type alias Model =
     { word : Maybe String
@@ -9,5 +11,4 @@ type alias Model =
 
 type Msg
     = GetReply
-    | Reply String
-    | Failed
+    | NewWord (Result Http.Error String)

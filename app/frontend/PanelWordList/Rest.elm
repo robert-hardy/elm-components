@@ -2,16 +2,19 @@ module PanelWordList.Rest exposing (..)
 
 import Http
 import Json.Decode as Json
-import Task
 import PanelWordList.Types exposing (..)
 
 
+getListOfStrings : String -> Cmd Msg
 getListOfStrings =
     let
         url =
             "http://localhost:8080/list-of-strings"
+
+        request =
+            Http.get url decodeJSON
     in
-        Task.perform (\x -> Failed) NewList (Http.get decodeJSON url)
+        Http.send NewList
 
 
 decodeJSON =
