@@ -1,5 +1,7 @@
 module PanelWordList.Types exposing (..)
 
+import Http
+
 
 type alias Model =
     { list : List String
@@ -8,6 +10,5 @@ type alias Model =
 
 type Msg
     = GetListOfStrings
-    | NewList (List String)
-    | Failed
+    | NewList (Result Http.Error (List String))
     | WordSelected String

@@ -1,7 +1,7 @@
 module AppMain.View exposing (..)
 
 import Html exposing (..)
-import Html.App
+import Html
 import Html.Attributes exposing (..)
 import Html.Events exposing (onClick)
 import AppMain.Types exposing (..)
@@ -12,13 +12,13 @@ import PanelWordList.View
 root model =
     let
         panelWordList =
-            Html.App.map PanelWordList
+            Html.map PanelWordList
                 (PanelWordList.View.root
                     model.panel_word_list
                 )
 
         panelWordEcho =
-            Html.App.map PanelWordEcho
+            Html.map PanelWordEcho
                 (PanelWordEcho.View.root
                     model.panel_word_echo
                 )

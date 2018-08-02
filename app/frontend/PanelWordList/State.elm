@@ -14,8 +14,11 @@ update msg model =
         GetListOfStrings ->
             ( model, getListOfStrings )
 
-        NewList l ->
+        NewList (Ok l) ->
             ( { model | list = l }, Cmd.none )
+
+        NewList (Err _) ->
+            ( model, Cmd.none )
 
         WordSelected word ->
             let
@@ -23,6 +26,3 @@ update msg model =
                     Debug.log "word selected" word
             in
                 ( model, Cmd.none )
-
-        otherwise ->
-            ( model, Cmd.none )

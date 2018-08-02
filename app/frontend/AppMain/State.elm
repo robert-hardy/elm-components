@@ -31,21 +31,21 @@ update msg model =
                 ( wl_model, cmds ) =
                     PanelWordList.State.update msg model.panel_word_list
 
-                model =
+                model1 =
                     { model | panel_word_list = wl_model }
             in
                 case msg of
                     PanelWordList.Types.WordSelected s ->
                         let
-                            model =
-                                cascade { model | current_word = Just s }
+                            model2 =
+                                cascade { model1 | current_word = Just s }
                         in
-                            ( model
+                            ( model2
                             , Cmd.map PanelWordList cmds
                             )
 
                     otherwise ->
-                        ( model
+                        ( model1
                         , Cmd.map PanelWordList cmds
                         )
 
@@ -54,10 +54,10 @@ update msg model =
                 ( we_model, cmds ) =
                     PanelWordEcho.State.update msg model.panel_word_echo
 
-                model =
+                model1 =
                     { model | panel_word_echo = we_model }
             in
-                ( model
+                ( model1
                 , Cmd.map PanelWordEcho cmds
                 )
 
